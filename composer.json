@@ -1,0 +1,12 @@
+{
+    "name": "hananils/kirby-tiles",
+    "description": "Kirby Tiles",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hana+nils · Büro für Gestaltung",
+            "email": "buero@hananils.de"
+        }
+    ]
+}
