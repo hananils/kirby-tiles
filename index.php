@@ -20,13 +20,12 @@ Kirby::plugin('hananils/tiles', [
         [
             'pattern' => ['tiles/(:all)/styles/(:any).json'],
             'action' => function ($id, $name) {
-                $path =
-                    kirby()->root('content') .
-                    '/' .
-                    $id .
-                    '/' .
-                    $name .
-                    '.json';
+                $path = sprintf(
+                    '%s/%s/%s.json',
+                    kirby()->root('content'),
+                    $id,
+                    $name
+                );
 
                 if ($json = F::read($path)) {
                     return new Response($json, 'application/json');
@@ -44,9 +43,7 @@ Kirby::plugin('hananils/tiles', [
             'action' => function ($id, $name) {
                 $tiles = new VectorTiles([
                     'id' => $id,
-                    'name' => $name,
-                    'urls' => kirby()->option('hananils.tiles.urls'),
-                    'content' => kirby()->root('content')
+                    'name' => $name
                 ]);
 
                 if ($tiles->exists()) {
@@ -67,9 +64,7 @@ Kirby::plugin('hananils/tiles', [
             'action' => function ($id, $name, $z, $x, $y) {
                 $tiles = new VectorTiles([
                     'id' => $id,
-                    'name' => $name,
-                    'urls' => kirby()->option('hananils.tiles.urls'),
-                    'content' => kirby()->root('content')
+                    'name' => $name
                 ]);
 
                 if (!$tiles->exists()) {
