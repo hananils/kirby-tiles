@@ -11,8 +11,6 @@ class VectorTiles
 {
     private $id;
     private $name;
-    private $urls;
-    private $content;
     private $path;
     private $modified;
     private $database;
@@ -25,8 +23,6 @@ class VectorTiles
     {
         $this->id = $options['id'];
         $this->name = $options['name'];
-        $this->urls = $options['urls'];
-        $this->content = $options['content'];
 
         $this->path = $this->toTilesPath();
         $this->modified = filemtime($this->path);
@@ -154,14 +150,13 @@ class VectorTiles
     {
         $urls = [];
 
-        foreach ($this->urls as $url) {
-            $urls[] =
-                $url .
-                '/' .
-                $this->id .
-                '/vector/' .
-                $this->name .
-                '/{z}/{x}/{y}.pbf';
+        foreach (kirby()->option('hananils.tiles.urls') as $url) {
+            $urls[] = sprintf(
+                '%s/%s/vector/%s/{z}/{x}/{y}.pbf',
+                $url,
+                $this->id,
+                $this->name
+            );
         }
 
         return $urls;
