@@ -169,11 +169,11 @@ class VectorTiles
 
     public function toTilesPath()
     {
-        return $this->content .
-            '/' .
-            $this->id .
-            '/' .
-            $this->name .
-            '.mbtiles';
+        return sprintf(
+            '%s/%s/%s.mbtiles',
+            kirby()->root('content'),
+            $this->id,
+            $this->name
+        );
     }
 }
