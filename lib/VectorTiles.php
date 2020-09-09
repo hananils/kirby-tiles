@@ -2,10 +2,10 @@
 
 namespace Hananils\Tiles;
 
+use Kirby\Data\Data;
 use Kirby\Database\Database;
 use Kirby\Database\Query;
-use Kirby\Data\Data;
-use Exception;
+use Kirby\Toolkit\F;
 
 class VectorTiles
 {
@@ -25,11 +25,19 @@ class VectorTiles
         $this->name = $options['name'];
 
         $this->path = $this->toTilesPath();
-        $this->modified = filemtime($this->path);
-        $this->database = new Database([
-            'type' => 'sqlite',
-            'database' => $this->path
-        ]);
+
+        if ($this->exists()) {
+            $this->modified = filemtime($this->path);
+            $this->database = new Database([
+                'type' => 'sqlite',
+                'database' => $this->path
+            ]);
+        }
+    }
+
+    public function exists()
+    {
+        return F::exists($this->path);
     }
 
     public function getInfo()

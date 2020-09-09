@@ -49,7 +49,11 @@ Kirby::plugin('hananils/tiles', [
                     'content' => kirby()->root('content')
                 ]);
 
-                return new Response($tiles->getInfo(), 'application/json');
+                if ($tiles->exists()) {
+                    return new Response($tiles->getInfo(), 'application/json');
+                }
+
+                return false;
             }
         ],
 
@@ -67,6 +71,10 @@ Kirby::plugin('hananils/tiles', [
                     'urls' => kirby()->option('hananils.tiles.urls'),
                     'content' => kirby()->root('content')
                 ]);
+
+                if (!$tiles->exists()) {
+                    return false;
+                }
 
                 if (!$tiles->isModified()) {
                     return new Response('', 'text/plain', 304);
