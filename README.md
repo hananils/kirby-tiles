@@ -1,57 +1,41 @@
-# Kirby Pluginkit: Example plugin for Kirby
+# WIP: Kirby Tiles
 
-> Variant "Basic setup"
-
-This is a boilerplate for a Kirby plugin that can be installed via all three [supported installation methods](https://getkirby.com/docs/guide/plugins/plugin-setup-basic#the-three-plugin-installation-methods).
-
-You can find a list of Pluginkit variants on the [`master` branch](https://github.com/getkirby/pluginkit/tree/master).
-
-****
-
-## How to use the Pluginkit
-
-1. Fork this repository
-2. Change the plugin name and description in the `composer.json`
-3. Change the plugin name in the `index.php`
-4. Change the license if you don't want to publish under MIT
-5. Add your plugin code to the `index.php`
-6. Update this `README` with instructions for your plugin
-
-We have a tutorial on how to build your own plugin based on the Pluginkit [in the Kirby documentation](https://getkirby.com/docs/guide/plugins/plugin-setup-basic).
-
-What follows is an example README for your plugin.
-
-****
+Kirby 3 plugin to serve basic vector map tiles (`.mbtiles`).
+This is work in progress and not ready for production use.
 
 ## Installation
 
 ### Download
 
-Download and copy this repository to `/site/plugins/{{ plugin-name }}`.
+Download and copy this repository to `/site/plugins/tiles`.
 
 ### Git submodule
 
 ```
-git submodule add https://github.com/{{ your-name }}/{{ plugin-name }}.git site/plugins/{{ plugin-name }}
+git submodule add https://github.com/hananils/kirby-tiles.git site/plugins/tiles
 ```
 
 ### Composer
 
 ```
-composer require {{ your-name }}/{{ plugin-name }}
+composer require hananils/kirby-tiles
 ```
 
-## Setup
+## Files
 
-*Additional instructions on how to configure the plugin (e.g. blueprint setup, config options, etc.)*
+Upload your map style and your tiles using Kirby's files fields. The following routes are proviced:
 
-## Options
+### Styles
 
-*Document the options and APIs that this plugin offers*
+`/tiles/{{ parent.page }}/styles/{{ filename }}.json`
 
-## Development
+### TileJSON
 
-*Add instructions on how to help working on the plugin (e.g. npm setup, Composer dev dependencies, etc.)*
+`/tiles/{{ parent.page }}/tilejson/{{ filename }}.json`
+
+### Vector tiles
+
+`/tiles/{{ parent.page }}/vector/{{ filename }}/{{ z }}/{{ x }}/{{ y }}.pbf`
 
 ## License
 
@@ -59,4 +43,4 @@ MIT
 
 ## Credits
 
-- [Your Name](https://github.com/ghost)
+[hana+nils · Büro für Gestaltung](https://hananils.de)
