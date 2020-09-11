@@ -21,9 +21,9 @@ git submodule add https://github.com/hananils/kirby-tiles.git site/plugins/tiles
 composer require hananils/kirby-tiles
 ```
 
-## Files
+## File storage and routes
 
-Upload your map style and your tiles using Kirby's files fields. The following routes are proviced:
+Upload your map style and your tiles using Kirby's files fields. The following routes are provided:
 
 ### Styles
 
