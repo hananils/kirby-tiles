@@ -9,6 +9,19 @@ load(
 
 use Hananils\Tiles\VectorTiles;
 
+function tiles($path)
+{
+    $path = explode('/', $path);
+    $name = array_pop($path);
+
+    $tiles = new VectorTiles([
+        'id' => implode('/', $path),
+        'name' => $name
+    ]);
+
+    return $tiles;
+}
+
 Kirby::plugin('hananils/tiles', [
     'options' => [
         'urls' => [kirby()->url() . '/tiles']
