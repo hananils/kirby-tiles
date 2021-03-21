@@ -2,6 +2,7 @@
 
 namespace Hananils\Tiles;
 
+use Kirby\Cms\Content;
 use Kirby\Data\Data;
 use Kirby\Database\Database;
 use Kirby\Database\Query;
@@ -40,7 +41,7 @@ class VectorTiles
         return F::exists($this->path);
     }
 
-    public function getInfo()
+    public function getInfo($encode = true)
     {
         $meta = $this->queryMetadata();
         $tilejson = [
@@ -56,7 +57,11 @@ class VectorTiles
             'bounds' => array_map('floatval', explode(',', $meta['bounds']))
         ];
 
-        return Data::encode($tilejson, 'json');
+        if ($encode) {
+            return Data::encode($tilejson, 'json');
+        }
+
+        return $tilejson;
     }
 
     /**
@@ -178,5 +183,10 @@ class VectorTiles
             $this->id,
             $this->name
         );
+    }
+
+    public function toTilesInfo()
+    {
+        return new Content($this->getInfo(false));
     }
 }
