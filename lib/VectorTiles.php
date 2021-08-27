@@ -149,7 +149,7 @@ class VectorTiles
         if ($matches) {
             $etag = md5($this->modified);
 
-            foreach (split(', ', $matches) as $tag) {
+            foreach (explode(', ', $matches) as $tag) {
                 if ($tag == $etag) {
                     return true;
                 }
