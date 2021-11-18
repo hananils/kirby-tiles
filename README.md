@@ -1,7 +1,6 @@
-# WIP: Kirby Tiles
+![Kirby Tiles](.github/title.png)
 
-Kirby 3 plugin to serve basic vector map tiles (`.mbtiles`).
-This is work in progress and not ready for production use.
+**Tiles** is a plugin for [Kirby 3](https://getkirby.com) to serve basic vector map tiles (`.mbtiles`).
 
 ## Installation
 
@@ -37,10 +36,7 @@ Upload your map style and your tiles using Kirby's files fields. The following r
 
 `/tiles/{{ parent.page }}/vector/{{ filename }}/{{ z }}/{{ x }}/{{ y }}.pbf`
 
-## License
+# License
 
-MIT
-
-## Credits
-
-[hana+nils · Büro für Gestaltung](https://hananils.de)
+This plugin is provided freely under the [MIT license](LICENSE.md) by [hana+nils · Büro für Gestaltung](https://hananils.de).  
+We create visual designs for digital and analog media.
