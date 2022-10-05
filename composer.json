@@ -3,6 +3,7 @@
     "description": "Kirby Tiles",
     "type": "kirby-plugin",
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "hana+nils · Büro für Gestaltung",
