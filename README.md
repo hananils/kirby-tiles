@@ -2,6 +2,10 @@
 
 **Tiles** is a plugin for [Kirby 3](https://getkirby.com) to serve basic vector map tiles (`.mbtiles`). The plugin provides routes for styles, tilejson and vector tiles that can be used with [Maplibre](https://maplibre.org/maplibre-gl-js-docs/api/) or similar.
 
+> [!NOTE]
+> **There is a large update coming for Kirby 5 this fall:**  
+> Please check out [kirby.hananils.de/plugins/tiles](https://kirby.hananils.de/plugins/tiles) for further information.
+
 ## Installation
 
 ### Download
